@@ -1,2 +1,2 @@
-# atcoder-typical90
+# typical90
 管理がめんどくさいのでリポジトリを切る
