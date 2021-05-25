@@ -11,6 +11,23 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(h: usize, w: usize, a: [[i64; w]; h]);
+    let mut h_sum = vec![0; w];
+    for i in 0..w {
+        h_sum[i] = (0..h).map(|j| a[j][i]).sum();
+    }
+    let mut w_sum = vec![0; h];
+    for i in 0..h {
+        w_sum[i] = (0..w).map(|j| a[i][j]).sum();
+    }
+
+    for i in 0..h {
+        for j in 0..w {
+            if j == w - 1 {
+                println!("{}", w_sum[i] + h_sum[j] - a[i][j]);
+            } else {
+                print!("{} ", w_sum[i] + h_sum[j] - a[i][j]);
+            }
+        }
+    }
 }
