@@ -11,6 +11,13 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(h: usize, w: usize);
+    println!(
+        "{}",
+        if h == 1 || w == 1 {
+            h * w
+        } else {
+            ((h + 1) / 2) * ((w + 1) / 2)
+        }
+    );
 }
