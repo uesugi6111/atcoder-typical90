@@ -53,6 +53,12 @@ typical90-045 = { alias = "045", problem = "https://atcoder.jp/contests/typical9
 typical90-046 = { alias = "046", problem = "https://atcoder.jp/contests/typical90/tasks/typical90_at" }
 typical90-047 = { alias = "047", problem = "https://atcoder.jp/contests/typical90/tasks/typical90_au" }
 typical90-048 = { alias = "048", problem = "https://atcoder.jp/contests/typical90/tasks/typical90_av" }
+typical90-049 = { alias = "049", problem = "https://atcoder.jp/contests/typical90/tasks/typical90_aw" }
+typical90-050 = { alias = "050", problem = "https://atcoder.jp/contests/typical90/tasks/typical90_ax" }
+typical90-051 = { alias = "051", problem = "https://atcoder.jp/contests/typical90/tasks/typical90_ay" }
+typical90-052 = { alias = "052", problem = "https://atcoder.jp/contests/typical90/tasks/typical90_az" }
+typical90-053 = { alias = "053", problem = "https://atcoder.jp/contests/typical90/tasks/typical90_ba" }
+typical90-054 = { alias = "054", problem = "https://atcoder.jp/contests/typical90/tasks/typical90_bb" }
 
 [[bin]]
 name = "typical90-001"
@@ -245,6 +251,30 @@ path = "src/bin/047.rs"
 [[bin]]
 name = "typical90-048"
 path = "src/bin/048.rs"
+
+[[bin]]
+name = "typical90-049"
+path = "src/bin/049.rs"
+
+[[bin]]
+name = "typical90-050"
+path = "src/bin/050.rs"
+
+[[bin]]
+name = "typical90-051"
+path = "src/bin/051.rs"
+
+[[bin]]
+name = "typical90-052"
+path = "src/bin/052.rs"
+
+[[bin]]
+name = "typical90-053"
+path = "src/bin/053.rs"
+
+[[bin]]
+name = "typical90-054"
+path = "src/bin/054.rs"
 [dependencies]
 num = "=0.2.1"
 num-bigint = "=0.2.6"
