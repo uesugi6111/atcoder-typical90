@@ -11,6 +11,17 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(a: i64, b: i64, c: i64);
+
+    let gcd = gcd(a, gcd(b, c));
+
+    println!("{}", a / gcd + b / gcd + c / gcd - 3);
+}
+
+pub fn gcd(m: i64, n: i64) -> i64 {
+    if m == 0 {
+        n.abs()
+    } else {
+        gcd(n % m, m)
+    }
 }
