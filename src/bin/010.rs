@@ -11,6 +11,39 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(
+        n: usize,
+        cp: [(i64, i64); n],
+        q: usize,
+        lr: [(usize, usize); q]
+    );
+
+    let cumsum_1 = (0..1)
+        .chain(
+            cp.iter()
+                .map(|&(c, p)| if c == 1 { p } else { 0 })
+                .scan(0, |c, x| {
+                    *c += x;
+                    Some(*c)
+                }),
+        )
+        .collect::<Vec<_>>();
+    let cumsum_2 = (0..1)
+        .chain(
+            cp.iter()
+                .map(|&(c, p)| if c == 2 { p } else { 0 })
+                .scan(0, |c, x| {
+                    *c += x;
+                    Some(*c)
+                }),
+        )
+        .collect::<Vec<_>>();
+
+    for (l, r) in lr {
+        println!(
+            "{} {}",
+            cumsum_1[r] - cumsum_1[l - 1],
+            cumsum_2[r] - cumsum_2[l - 1]
+        );
+    }
 }
