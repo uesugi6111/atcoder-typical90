@@ -11,6 +11,12 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(n: usize, s: [String; n]);
+    let mut set = std::collections::HashSet::new();
+    for (i, ss) in s.iter().enumerate() {
+        if !set.contains(ss) {
+            println!("{}", i + 1);
+            set.insert(ss);
+        }
+    }
 }
