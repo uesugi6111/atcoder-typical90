@@ -11,6 +11,12 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(n: usize, k: i64, a: [i64; n], b: [i64; n]);
+    let dist: i64 = (0..n).map(|i| (a[i] - b[i]).abs()).sum();
+
+    if dist == k || (dist < k && (k - dist) % 2 == 0) {
+        println!("Yes");
+    } else {
+        println!("No");
+    }
 }
