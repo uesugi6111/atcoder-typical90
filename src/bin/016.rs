@@ -11,6 +11,29 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(n: i64, a: i64, b: i64, c: i64);
+
+    let (a, b, c) = {
+        let mut v = vec![a, b, c];
+        v.sort();
+        (v[2], v[1], v[0])
+    };
+
+    let mut min = 10000;
+    for i in 0..10000 {
+        if a * i > n {
+            break;
+        }
+        for j in 0..10000 - i {
+            if a * i + b * j > n {
+                break;
+            }
+            let buff = n - a * i - b * j;
+            if buff % c == 0 {
+                min = min.min(buff / c + i + j);
+            }
+        }
+    }
+
+    println!("{}", min);
 }
