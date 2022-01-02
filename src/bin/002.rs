@@ -11,6 +11,30 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(n: i64);
+
+    let mut ans = vec![];
+
+    for i in 0..(1 << n) {
+        let mut sum = 0;
+        let mut s = String::new();
+        for j in 0..n {
+            let b = i & (1 << j) == 0;
+
+            sum += if b { 1 } else { -1 };
+            if sum < 0 {
+                break;
+            }
+
+            s = format!("{}{}", s, if b { '(' } else { ')' });
+        }
+
+        if s.len() == n as usize && sum == 0 {
+            ans.push(s);
+        }
+    }
+    ans.sort();
+    for v in ans {
+        println!("{}", v);
+    }
 }
