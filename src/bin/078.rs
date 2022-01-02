@@ -11,6 +11,13 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(n: usize, m: usize, ab: [(i64, i64); m]);
+
+    let mut v = vec![0; n];
+
+    for (a, b) in ab {
+        v[a.max(b) as usize - 1] += 1;
+    }
+    let ans = v.iter().filter(|&&x| x == 1).count();
+    println!("{}", ans);
 }
