@@ -11,6 +11,13 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(n: usize, a: [i64; n], q: usize, b: [i64; q]);
+
+    let set = a.iter().collect::<std::collections::BTreeSet<_>>();
+
+    for i in b {
+        let l = *set.range(..i).last().unwrap_or(&&-10000000000);
+        let f = *set.range(i..).next().unwrap_or(&&10000000000);
+        println!("{}", (i - l).min(f - i));
+    }
 }
