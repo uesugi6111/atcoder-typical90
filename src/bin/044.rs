@@ -11,6 +11,24 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    let mut sc = io_pro::Scanner::new(std::io::stdin().lock());
+    input!(sc = sc, n: usize, q: usize, a: [i64; n]);
+
+    let mut aa = a.iter().copied().collect::<std::collections::VecDeque<_>>();
+
+    for _ in 0..q {
+        input!(sc = sc, t: usize);
+
+        if t == 1 {
+            input!(sc = sc, x: usize, y: usize);
+            aa.swap(x - 1, y - 1);
+        } else if t == 2 {
+            input!(sc = sc, _x: usize, _y: usize);
+            aa.rotate_right(1);
+        } else {
+            input!(sc = sc, x: usize, _y: usize);
+
+            println!("{}", aa[x - 1]);
+        }
+    }
 }

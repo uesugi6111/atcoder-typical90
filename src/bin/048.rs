@@ -11,6 +11,14 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(n: usize, k: usize, ab: [(i64, i64); n]);
+    let mut v = ab.iter().map(|x| x.1).collect::<Vec<_>>();
+
+    for &(a, b) in ab.iter() {
+        v.push(a - b);
+    }
+    v.sort_by_key(|x| std::cmp::Reverse(*x));
+    let mut sum = v.iter().take(k).sum::<i64>();
+
+    println!("{}", sum);
 }

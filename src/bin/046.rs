@@ -11,6 +11,31 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(n: usize, a: [usize; n], b: [usize; n], c: [usize; n]);
+
+    let mut v_a = vec![0; 46];
+    for i in a {
+        v_a[i % 46] += 1;
+    }
+
+    let mut v_b = vec![0; 46];
+    for i in b {
+        v_b[i % 46] += 1;
+    }
+    let mut v_c = vec![0; 46];
+    for i in c {
+        v_c[i % 46] += 1;
+    }
+    let mut count = 0u128;
+    for i in 0..46 {
+        for j in 0..46 {
+            for k in 0..46 {
+                if (i + j + k) % 46 == 0 {
+                    count += v_a[i] * v_b[j] * v_c[k];
+                }
+            }
+        }
+    }
+
+    println!("{}", count);
 }

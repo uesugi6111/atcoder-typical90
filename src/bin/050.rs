@@ -11,6 +11,16 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(n: usize, l: i64);
+
+    let mut dp = vec![0; n + l as usize];
+    dp[0] = 1;
+
+    for i in 0..n {
+        dp[i + 1] += dp[i];
+        dp[i + 1] %= 1000000007;
+        dp[i + l as usize] += dp[i];
+        dp[i + l as usize] %= 1000000007;
+    }
+    println!("{}", dp[n]);
 }

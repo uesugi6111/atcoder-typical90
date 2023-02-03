@@ -11,6 +11,7 @@ mod io_pro {
 }
 #[proconio::fastout]
 fn main() {
-    input!(n: usize);
-    println!("Yes");
+    input!(a: u64, b: u64, c: u64);
+
+    println!("{}", if a < c.pow(b as u32) { "Yes" } else { "No" });
 }
